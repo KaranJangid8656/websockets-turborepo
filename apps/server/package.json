@@ -13,6 +13,8 @@
         "typescript": "^6.0.2"
     },
     "dependencies": {
+        "@upstash/redis": "^1.37.0",
+        "ioredis": "^5.10.1",
         "socket.io": "^4.8.3"
     }
 }

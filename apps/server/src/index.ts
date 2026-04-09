@@ -12,7 +12,9 @@ async function init() {
 
     httpServer.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`)
-    socketService.intListeners();
+        socketService.intListeners();
 
-    })
-} 
+    });
+}
+
+init();
