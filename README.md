@@ -2,18 +2,18 @@
   <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738593/tr-removebg-preview_c1yat4.png" alt="Project Banner" width="500"/>
 </p>
 
-
-
-
 <p align="center">
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738044/socket__io-removebg-preview_zju2gr.png" alt="Socket.IO" height="120"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738871/websockets-removebg-preview_lvg9x7.png" alt="Socket.IO" height="140"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738049/redis_image-removebg-preview_asdmdd.png" alt="Redis" height="120"/>
-  &nbsp;&nbsp;&nbsp;
+  
   <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738230/upstash-dark-bg_bopnp6.png" alt="Upstash" height="120"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738049/redis_image-removebg-preview_asdmdd.png" alt="Redis" height="100"/>
+  &nbsp;&nbsp;&nbsp;
 </p>
 
----
+<br>
+<br>
+
 <p align="center">
   A production-ready, horizontally scalable real-time chat application built with a modern monorepo architecture.
 </p>
