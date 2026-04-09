@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738593/tr-removebg-preview_c1yat4.png" alt="Project Banner" width="500"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738593/tr-removebg-preview_c1yat4.png" alt="Project Banner" width="400"/>
 </p>
 
 <p align="center">
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738871/websockets-removebg-preview_lvg9x7.png" alt="Socket.IO" height="140"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738871/websockets-removebg-preview_lvg9x7.png" alt="Socket.IO" height="130"/>
   &nbsp;&nbsp;&nbsp;
   
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738230/upstash-dark-bg_bopnp6.png" alt="Upstash" height="120"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738230/upstash-dark-bg_bopnp6.png" alt="Upstash" height="110"/>
   <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738049/redis_image-removebg-preview_asdmdd.png" alt="Redis" height="100"/>
   &nbsp;&nbsp;&nbsp;
 </p>
