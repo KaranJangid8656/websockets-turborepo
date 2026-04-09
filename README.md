@@ -1,159 +1,149 @@
-# Turborepo starter
+<p align="center">
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738089/tr_sb56gf.png" alt="Project Banner" width="600"/>
+</p>
 
-This Turborepo starter is maintained by the Turborepo core team.
+<h1 align="center">⚡ Scalable Real-Time Chat</h1>
 
-## Using this example
+<p align="center">
+  A production-ready, horizontally scalable real-time chat application built with a modern monorepo architecture.
+</p>
 
-Run the following command:
+<p align="center">
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738044/socket__io-removebg-preview_zju2gr.png" alt="Socket.IO" height="50"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738049/redis_image-removebg-preview_asdmdd.png" alt="Redis" height="50"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738230/upstash-dark-bg_bopnp6.png" alt="Upstash" height="50"/>
+</p>
 
-```sh
-npx create-turbo@latest
+---
+
+## 📖 About The Project
+
+This is a **scalable, real-time chat application** designed to work seamlessly across multiple server instances. Traditional chat apps break when scaled horizontally — a user on Server A can't receive messages from a user on Server B. This project solves that problem using **Redis Pub/Sub** as a message broker to broadcast events across all connected server instances.
+
+The app is built as a **Turborepo monorepo**, keeping the frontend (`web`) and backend (`server`) in a single, unified repository with shared tooling and configurations.
+
+### ✨ Key Features
+
+- 🔴 **Real-time messaging** via WebSockets (Socket.IO)
+- 📡 **Horizontally scalable** — multiple server instances stay in sync via Redis Pub/Sub
+- 🌐 **Cross-server broadcasting** — messages sent to any server reach all connected clients
+- 🎨 **Modern glassmorphism UI** built with Next.js
+- 🚀 **Monorepo architecture** powered by Turborepo
+- 🔒 **CORS-configured** for secure cross-origin WebSocket connections
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | [Next.js](https://nextjs.org/) (React framework) |
+| **Backend** | [Node.js](https://nodejs.org/) + [Express](https://expressjs.com/) |
+| **WebSockets** | [Socket.IO](https://socket.io/) |
+| **Pub/Sub Broker** | [Upstash Redis](https://upstash.com/) (serverless Redis) |
+| **Monorepo** | [Turborepo](https://turbo.build/) |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) (end-to-end) |
+| **Package Manager** | [Yarn](https://yarnpkg.com/) |
+
+---
+
+## 🏗️ Project Structure
+
+```
+scalable-c/
+├── apps/
+│   ├── web/          # Next.js frontend (chat UI + Socket.IO client)
+│   └── server/       # Node.js + Express backend (Socket.IO + Redis Pub/Sub)
+├── packages/
+│   ├── ui/           # Shared React component library
+│   ├── eslint-config/ # Shared ESLint configuration
+│   └── typescript-config/ # Shared TypeScript configuration
+├── turbo.json        # Turborepo pipeline configuration
+└── package.json      # Root workspace configuration
 ```
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## ⚙️ How It Works
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
+```
+Client A (Browser)
+      |
+      | WebSocket (Socket.IO)
+      ↓
+   Server Instance 1  ──── Redis Pub/Sub ────  Server Instance 2
+                                                      |
+                                              WebSocket (Socket.IO)
+                                                      ↓
+                                              Client B (Browser)
 ```
 
-Without global `turbo`, use your package manager:
+1. A client sends a message via WebSocket to their connected server instance.
+2. The server publishes the message to a **Redis channel**.
+3. All other server instances are **subscribed** to that channel and receive the message.
+4. Each server then **broadcasts** the message to its own connected clients.
+5. Every user sees the message in real-time — regardless of which server they're connected to.
 
-```sh
-cd my-turborepo
-npx turbo build
-yarn dlx turbo build
-yarn exec turbo build
-```
+---
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+## 🚀 Getting Started
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+### Prerequisites
 
-```sh
-turbo build --filter=docs
-```
+- [Node.js](https://nodejs.org/) >= 18
+- [Yarn](https://yarnpkg.com/)
+- An [Upstash Redis](https://upstash.com/) account (free tier works)
 
-Without global `turbo`:
+### Installation
 
-```sh
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-yarn exec turbo build --filter=docs
-```
+1. **Clone the repository**
+   ```sh
+   git clone <your-repo-url>
+   cd scalable-c
+   ```
 
-### Develop
+2. **Install dependencies**
+   ```sh
+   yarn install
+   ```
 
-To develop all apps and packages, run the following command:
+3. **Configure environment variables**
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+   Create a `.env` file inside `apps/server/`:
+   ```env
+   UPSTASH_REDIS_URL=your_upstash_redis_url
+   UPSTASH_REDIS_TOKEN=your_upstash_redis_token
+   PORT=8080
+   ```
 
-```sh
-cd my-turborepo
-turbo dev
-```
+4. **Run the development servers**
+   ```sh
+   yarn dev
+   ```
+   This starts both the Next.js frontend and the Node.js backend concurrently.
 
-Without global `turbo`, use your package manager:
+   | App | URL |
+   |---|---|
+   | Web (Frontend) | http://localhost:3000 |
+   | Server (Backend) | http://localhost:8080 |
 
-```sh
-cd my-turborepo
-npx turbo dev
-yarn exec turbo dev
-yarn exec turbo dev
-```
+---
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+## 📦 Available Scripts
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+| Command | Description |
+|---|---|
+| `yarn dev` | Start all apps in development mode |
+| `yarn build` | Build all apps for production |
+| `yarn lint` | Lint all apps and packages |
 
-```sh
-turbo dev --filter=web
-```
+---
 
-Without global `turbo`:
+## 🔗 Useful Links
 
-```sh
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-yarn exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-yarn exec turbo login
-yarn exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-yarn exec turbo link
-yarn exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+- [Socket.IO Documentation](https://socket.io/docs/)
+- [Upstash Redis](https://upstash.com/)
+- [Turborepo Documentation](https://turbo.build/repo/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
