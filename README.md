@@ -1,22 +1,22 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738089/tr_sb56gf.png" alt="Project Banner" width="600"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738593/tr-removebg-preview_c1yat4.png" alt="Project Banner" width="500"/>
 </p>
 
-<h1 align="center">⚡ Scalable Real-Time Chat</h1>
+
+
 
 <p align="center">
-  A production-ready, horizontally scalable real-time chat application built with a modern monorepo architecture.
-</p>
-
-<p align="center">
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738044/socket__io-removebg-preview_zju2gr.png" alt="Socket.IO" height="50"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738044/socket__io-removebg-preview_zju2gr.png" alt="Socket.IO" height="120"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738049/redis_image-removebg-preview_asdmdd.png" alt="Redis" height="50"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738049/redis_image-removebg-preview_asdmdd.png" alt="Redis" height="120"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738230/upstash-dark-bg_bopnp6.png" alt="Upstash" height="50"/>
+  <img src="https://res.cloudinary.com/dx9bvma03/image/upload/v1775738230/upstash-dark-bg_bopnp6.png" alt="Upstash" height="120"/>
 </p>
 
 ---
+<p align="center">
+  A production-ready, horizontally scalable real-time chat application built with a modern monorepo architecture.
+</p>
 
 ## 📖 About The Project
 
