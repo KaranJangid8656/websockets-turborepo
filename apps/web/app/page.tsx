@@ -4,19 +4,12 @@ import { useSocket } from '../context/SocketProvider';
 import styles from './page.module.css';
 
 export default function Page() {  
-  const { sendMessage } = useSocket();
+  const { sendMessage, messages } = useSocket();
   const [message, setMessage] = useState('');
-  
-  // Local state for UI representation. We'll add local messages here when sent.
-  // When socket listens are added in the Context, we can easily sync them!
-  const [messages, setMessages] = useState<{text: string, type: 'sent' | 'received'}[]>([
-    { text: "Welcome to the chatroom!", type: 'received' }
-  ]);
 
   const handleSend = () => {
     if (message.trim()) {
       sendMessage(message);
-      setMessages([...messages, { text: message, type: 'sent' }]);
       setMessage('');
     }
   };
