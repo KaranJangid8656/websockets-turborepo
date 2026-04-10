@@ -24,7 +24,7 @@ This is a **scalable, real-time chat application** designed to work seamlessly a
 
 The app is built as a **Turborepo monorepo**, keeping the frontend (`web`) and backend (`server`) in a single, unified repository with shared tooling and configurations.
 
-### ✨ Key Features
+### ✨ Key Features 
 
 - 🔴 **Real-time messaging** via WebSockets (Socket.IO)
 - 📡 **Horizontally scalable** — multiple server instances stay in sync via Redis Pub/Sub
